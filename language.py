@@ -38,7 +38,14 @@ Parameters: 2D list of strs
 Returns: int
 '''
 def getCorpusLength(corpus):
-    return
+    c=0
+    for line in corpus:
+        for word in line:
+            c=c+1
+ 
+    return c
+
+   
 
 
 '''
