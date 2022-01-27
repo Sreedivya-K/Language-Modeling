@@ -132,6 +132,20 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to (dicts mapping strs to ints)
 '''
 def countBigrams(corpus):
+    bigramDict={}
+    for line in corpus:
+        for i in range(len(line)-1):
+            firstWord = line[i]
+            secondWord = line[i+1]
+            if firstWord not in bigramDict:
+                bigramDict[firstWord]={}
+            if secondWord not in bigramDict[firstWord]:
+                bigramDict[firstWord][secondWord]=1
+            else:
+                bigramDict[firstWord][secondWord]+=1    
+    return bigramDict
+
+
     return
 
 
