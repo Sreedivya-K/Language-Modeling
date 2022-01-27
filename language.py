@@ -236,7 +236,13 @@ Returns: str
 '''
 from random import choices
 def generateTextFromUnigrams(count, words, probs):
-    return
+    sentence=""
+    for i in range(count):
+        wordList=choices(words, weights=probs)
+        sentence=sentence+" "+wordList[0]
+    return sentence
+
+   
 
 
 '''
