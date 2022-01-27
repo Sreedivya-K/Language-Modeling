@@ -93,7 +93,15 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def getStartWords(corpus):
-    return
+    uni=[]
+    for lines in corpus:
+        words= lines[0]
+        if words not in uni:
+            uni.append(words)  
+ 
+    return uni
+
+    
 
 
 '''
