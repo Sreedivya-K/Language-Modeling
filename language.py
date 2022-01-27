@@ -55,7 +55,15 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def buildVocabulary(corpus):
-    return
+    uni=[]
+    for lines in corpus:
+        for words in lines:
+         if words not in uni:
+            uni.append(words)  
+ 
+    return uni
+
+    
 
 
 '''
