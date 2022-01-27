@@ -282,7 +282,15 @@ Parameters: 2D list of strs
 Returns: None
 '''
 def graphTop50Words(corpus):
+    words=buildVocabulary(corpus)
+    unicount=countUnigrams(corpus)
+    count=len(words)
+    probs=buildUnigramProbs(words,unicount,count)
+    topWord=getTopWords(50, words, probs, ignore)
+    barPlot(topWord,"Top 50 Words")
     return
+
+   
 
 
 '''
