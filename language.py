@@ -17,7 +17,18 @@ Parameters: str
 Returns: 2D list of strs
 '''
 def loadBook(filename):
-    return
+    f=open(filename,"r")
+    lines = f.read()
+    s=[]
+    for line in lines.split("\n"):
+        if len(line) > 0:
+            word=line.split(" ")
+            s.append(word)
+     
+ 
+    return s
+
+   
 
 
 '''
