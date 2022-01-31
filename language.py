@@ -17,7 +17,18 @@ Parameters: str
 Returns: 2D list of strs
 '''
 def loadBook(filename):
-    return
+    f=open(filename,"r")
+    lines = f.read()
+    s=[]
+    for line in lines.split("\n"):
+        if len(line) > 0:
+            word=line.split(" ")
+            s.append(word)
+     
+ 
+    return s
+
+   
 
 
 '''
@@ -27,7 +38,14 @@ Parameters: 2D list of strs
 Returns: int
 '''
 def getCorpusLength(corpus):
-    return
+    c=0
+    for line in corpus:
+        for word in line:
+            c=c+1
+ 
+    return c
+
+   
 
 
 '''
@@ -37,7 +55,15 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def buildVocabulary(corpus):
-    return
+    uni=[]
+    for lines in corpus:
+        for words in lines:
+         if words not in uni:
+            uni.append(words)  
+ 
+    return uni
+
+    
 
 
 '''
@@ -47,7 +73,17 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to ints
 '''
 def countUnigrams(corpus):
-    return
+    uni={}
+    for lines in corpus:
+       for word in lines:
+           if word not in uni:
+             uni[word]=1
+           else:
+             uni[word] += 1      
+ 
+    return uni
+
+   
 
 
 '''
@@ -57,7 +93,15 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def getStartWords(corpus):
-    return
+    uni=[]
+    for lines in corpus:
+        words= lines[0]
+        if words not in uni:
+            uni.append(words)  
+ 
+    return uni
+
+    
 
 
 '''
@@ -67,7 +111,18 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to ints
 '''
 def countStartWords(corpus):
-    return
+    uni={}
+    for lines in corpus:
+        words= lines[0]
+        if words not in uni:
+            uni[words] = 1
+        else:
+             uni[words] += 1      
+ 
+    return uni
+
+
+    
 
 
 '''
@@ -77,6 +132,20 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to (dicts mapping strs to ints)
 '''
 def countBigrams(corpus):
+    bigramDict={}
+    for line in corpus:
+        for i in range(len(line)-1):
+            firstWord = line[i]
+            secondWord = line[i+1]
+            if firstWord not in bigramDict:
+                bigramDict[firstWord]={}
+            if secondWord not in bigramDict[firstWord]:
+                bigramDict[firstWord][secondWord]=1
+            else:
+                bigramDict[firstWord][secondWord]+=1    
+    return bigramDict
+
+
     return
 
 
